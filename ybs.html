@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Home Page</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+		<script src="bootstrap/js/jquery.min.js" ></script>	
+		<script src="bootstrap/js/bootstrap.min.js" ></script>
+		<style>
+			body{
+				background-image: url("images/fabric.png");
+				background-repeat: repeat;
+			}
+			.head{
+				width:100%;
+				text-align: center;
+			}
+			.footer{
+				height: 30px;
+			}
+			.footer-text{
+				text-align: center;
+			}
+			.navbar-default{
+				background-color: transparent;
+				border-color: none;
+				background-image: none;
+				box-shadow: none;
+			}
+			.slider{
+				border: 1px solid #000;
+			}
+		</style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	<ul class="nav nav-pills navbar-left">
+  		<li role="presentation" class="active"><a href="ybs.html">Home</a></li>
+  		<li role="presentation"><a href="about.html">About Me</a></li>
+  		<li role="presentation"><a href="portfolio.html">Portfolio</a></li>
+  		<li role="presentation"><a href="contact.html">Contact Me</a></li>
+	</ul>
+	<form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+         <input type="text" class="form-control" placeholder="Search">
+       	</div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+</div>
+</div>
+</nav>
+
+<div class="container">
+	<div class="slider">
+		<div><img src="images/1.jpg"/></div>
+		<div><img src="images/2.jpg"/></div>
+		<div><img src="images/3.jpg"/></div>
+		<div><img src="images/4.jpg"/></div>
+		<div><img src="images/5.jpg"/></div>
+		<div><img src="images/6.jpg"/></div>
+	</div>
+	<div class="page-header head">
+		<h2>Yogendra Bahadur Shrestha</h2>
+	</div>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="slick/slick.min.js"></script>
+	<script>
+		$(document).ready(function(){
+  			$('.slider').slick({
+  				dots: true,
+  				infinite: true,
+  				speed: 1000,
+  				slidesToShow: 1,
+  				adaptiveHeight: true,
+  				autoplay: true,
+  				autoplaySpeed: 2000,
+  				fade:true,
+  				focusOnSelect:true
+			});
+		});
+	</script>
+</div>
+
+</body>
+</html

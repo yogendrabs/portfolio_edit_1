@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Portfolio</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+		<script src="bootstrap/js/jquery.min.js" ></script>	
+		<script src="bootstrap/js/bootstrap.min.js" ></script>
+		<style>
+			body{
+				background-image: url("images/fabric.png");
+				background-repeat: repeat;
+			}
+			.size{
+				min-height: 260px;
+			}
+			.media-heading{
+				margin-bottom: 30px;
+			}
+			.navbar-default{
+				background-color: transparent;
+				border-color: none;
+				background-image: none;
+				box-shadow: none;
+			}
+			#map{
+				height: 480px;
+				border: 1px solid #000;
+			}
+		</style>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	<ul class="nav nav-pills navbar-left">
+  		<li role="presentation"><a href="ybs.html">Home</a></li>
+  		<li role="presentation"><a href="about.html">About Me</a></li>
+  		<li role="presentation"><a href="portfolio.html">Portfolio</a></li>
+  		<li role="presentation" class="active"><a href="contact.html">Contact Me</a></li>
+	</ul>
+	<form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+         <input type="text" class="form-control" placeholder="Search">
+       	</div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+</div>
+</div>
+</nav>
+<div class="container">
+	<div class="media-body">
+		<h4 class="media-heading">Contact Me</h4>
+	</div>
+<div>
+<form id="form" role="form">
+	
+	<div class="form-group form-group-md row">
+		<div class="col-md-4"><input type="text" class="form-control" placeholder="First Name"/></div>
+		<div class="col-md-4"><input type="text" class="form-control" placeholder="Middle Name"/></div>
+		<div class="col-md-4"><input type="text" class="form-control" placeholder="Last Name"/></div>
+	</div>
+
+	<div class="form-group form-group-md row">
+		<div class="col-md-4"><input type="email" class="form-control" placeholder="Email Address"/></div>
+		<div class="col-md-4"><input type="text" class="form-control" placeholder="Contact Number"/></div>
+	</div>
+
+	<div class="form-group form-group-md row">
+		<div class="col-md-8"><textarea class="form-control" placeholder="Your Message" rows="4"></textarea></div>
+	</div>
+
+	<div class="g-recaptcha" data-sitekey="6LdpoRETAAAAAGRwp4QFpQwUSGrFhCzz3UhEP9hg"></div>
+
+	<br>
+
+	<div class=""><button type="submit" class="btn btn-primary">Send</button></div>
+</form>
+</div>
+<hr>
+<div class="media-body">
+	<h4 class="media-heading">Work Location</h4>
+</div>
+<div id="map">
+
+	<script>
+
+		var map = L.map('map').setView([27.707612, 85.327278], 15);
+
+		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'mapbox.streets'
+		}).addTo(map);
+
+
+		L.marker([27.707612, 85.327278]).addTo(map)
+			.bindPopup("<b>Hi! I am here</b>.").openPopup();
+
+		L.circle([27.707612, 85.327278], 400, {
+			color: 'green',
+			fillColor: 'green',
+			fillOpacity: 0.2
+		}).addTo(map).bindPopup("Work Radius.");
+
+		var popup = L.popup();
+
+		function onMapClick(e) {
+			popup
+				.setLatLng(e.latlng)
+				.setContent("You clicked the map at " + e.latlng.toString())
+				.openOn(map);
+		}
+
+		map.on('click', onMapClick);
+
+	</script>
+
+</div>
+
+</div>
+</body>
+</html>
